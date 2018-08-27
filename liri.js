@@ -6,10 +6,11 @@ var keys = require("./keys.js");
 var Spotify = require("node-spotify-api");
 var spotify = new Spotify(keys.spotify);
 
-
+var moment = require('moment');
 
 var request = require("request");
 
+var results = "";
 
 var fs = require("fs");
 
@@ -36,6 +37,7 @@ function doSomething(action, argument) {
 
                 spotifyThisSong(songTitle);
             }
+
             break;
 
         case "movie-this":
@@ -83,7 +85,7 @@ function spotifyThisSong(songTitle) {
         if (err) {
             return console.log('Error occurred: ' + err);
         }
-
+      
         //Artist
         var artistsInfo = data.tracks.items[0].album.artists;
 
@@ -102,6 +104,7 @@ function spotifyThisSong(songTitle) {
         //Preview Link
         console.log("Song Preview: " + data.tracks.items[0].preview_url);
 
+        console.log("Album: " + data.tracks.items[0].album.name);
 
     });
 }
@@ -130,24 +133,24 @@ function movieThis(movieName) {
 function concertThis(artist) {
 
     var queryUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
-    var moment = require('moment');
+
 
     request(queryUrl, function (error, response, data) {
         if (!error && response.statusCode === 200) {
             var eventData = JSON.parse(data);
-            var venue = JSON.stringify(eventData[0].venue.name);
-            var city = JSON.stringify(eventData[0].venue.city);
-            var state = JSON.stringify(eventData[0].venue.region);
-            var date = eventData[0].datetime;
-            var format = "YYYY-MM-DD HH-mm-ss";
-            var convertedDate = moment(date, format);
-
-            
-            console.log("Venue: " + venue.replace(/\"/g, ""));
-            console.log("City: " + city.replace(/\"/g, "") + ", " + state.replace(/\"/g, ""));
-            console.log("Date: " + moment(convertedDate).format("MM/DD/YYYY"));
             for (var i = 0; i < data.length; i++) {
-                
+                var venue = JSON.stringify(eventData[i].venue.name);
+                var city = JSON.stringify(eventData[i].venue.city);
+                var state = JSON.stringify(eventData[i].venue.region);
+                var date = eventData[0].datetime;
+                var format = "YYYY-MM-DD HH-mm-ss";
+                var convertedDate = moment(date, format);
+
+                console.log("Venue: " + venue.replace(/\"/g, ""));
+                console.log("City: " + city.replace(/\"/g, "") + ", " + state.replace(/\"/g, ""));
+                console.log("Date: " + moment(convertedDate).format("MM/DD/YYYY"));
+                console.log("-------------");
+//why is this throwing an error at the end?
             }
         }
     });
@@ -160,7 +163,6 @@ function doWhatItSays() {
         if (err) {
             logOutput.error(err);
         } else {
-
             var randomArray = data.split(",");
 
             action = randomArray[0];
@@ -171,5 +173,3 @@ function doWhatItSays() {
         }
     });
 }
-
-

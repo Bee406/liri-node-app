@@ -137,8 +137,9 @@ function concertThis(artist) {
 
     request(queryUrl, function (error, response, data) {
         if (!error && response.statusCode === 200) {
-            var eventData = JSON.parse(data);
+            
             for (var i = 0; i < data.length; i++) {
+                var eventData = JSON.parse(data);
                 var venue = JSON.stringify(eventData[i].venue.name);
                 var city = JSON.stringify(eventData[i].venue.city);
                 var state = JSON.stringify(eventData[i].venue.region);
@@ -150,7 +151,9 @@ function concertThis(artist) {
                 console.log("City: " + city.replace(/\"/g, "") + ", " + state.replace(/\"/g, ""));
                 console.log("Date: " + moment(convertedDate).format("MM/DD/YYYY"));
                 console.log("-------------");
-//why is this throwing an error at the end?
+
+
+// why is this throwing an error at the end?
             }
         }
     });
@@ -163,11 +166,12 @@ function doWhatItSays() {
         if (err) {
             logOutput.error(err);
         } else {
-            var randomArray = data.split(",");
+            // console.log("Data: " + data);
+            var dataArray = data.split(",");
 
-            action = randomArray[0];
+            action = dataArray[0];
 
-            argument = randomArray[1];
+            argument = dataArray[1];
 
             doSomething(action, argument);
         }

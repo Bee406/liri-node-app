@@ -85,7 +85,7 @@ function spotifyThisSong(songTitle) {
         if (err) {
             return console.log('Error occurred: ' + err);
         }
-      
+
         //Artist
         var artistsInfo = data.tracks.items[0].album.artists;
 
@@ -137,23 +137,27 @@ function concertThis(artist) {
 
     request(queryUrl, function (error, response, data) {
         if (!error && response.statusCode === 200) {
-            
+            var eventData = JSON.parse(data);
+            console.log(eventData);
+
             for (var i = 0; i < data.length; i++) {
-                var eventData = JSON.parse(data);
-                var venue = JSON.stringify(eventData[i].venue.name);
-                var city = JSON.stringify(eventData[i].venue.city);
-                var state = JSON.stringify(eventData[i].venue.region);
-                var date = eventData[0].datetime;
-                var format = "YYYY-MM-DD HH-mm-ss";
-                var convertedDate = moment(date, format);
+                if (eventData[i]) {
 
-                console.log("Venue: " + venue.replace(/\"/g, ""));
-                console.log("City: " + city.replace(/\"/g, "") + ", " + state.replace(/\"/g, ""));
-                console.log("Date: " + moment(convertedDate).format("MM/DD/YYYY"));
-                console.log("-------------");
+                    // console.log(eventData);
+                    var venue = JSON.stringify(eventData[i].venue.name);
+                    var city = JSON.stringify(eventData[i].venue.city);
+                    var state = JSON.stringify(eventData[i].venue.region);
+                    var date = eventData[0].datetime;
+                    var format = "YYYY-MM-DD HH-mm-ss";
+                    var convertedDate = moment(date, format);
 
+                    console.log("Venue: " + venue.replace(/\"/g, ""));
+                    console.log("City: " + city.replace(/\"/g, "") + ", " + state.replace(/\"/g, ""));
+                    console.log("Date: " + moment(convertedDate).format("MM/DD/YYYY"));
+                    console.log("-------------");
 
-// why is this throwing an error at the end?
+                }
+                // why is this throwing an error at the end?
             }
         }
     });

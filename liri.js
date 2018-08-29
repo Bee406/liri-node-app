@@ -96,15 +96,19 @@ function spotifyThisSong(songTitle) {
 
         var artists = artistsList.join(", ");
 
-        console.log("Artists: " + artists);
+        log ("Spotify This Song: " + songTitle + "\n");
+
+        log("Artists: " + artists + "\n");
 
         //Song Name
-        console.log("Song Name: " + data.tracks.items[0].name);
+        log("Song Name: " + data.tracks.items[0].name + "\n");
 
         //Preview Link
-        console.log("Song Preview: " + data.tracks.items[0].preview_url);
+        log("Song Preview: " + data.tracks.items[0].preview_url + "\n");
 
-        console.log("Album: " + data.tracks.items[0].album.name);
+        log("Album: " + data.tracks.items[0].album.name + "\n");
+        
+        log("------------- \n");
 
     });
 }
@@ -118,14 +122,17 @@ function movieThis(movieName) {
             // console.log(JSON.parse(data, null, 4));
             var movie = JSON.parse(data);
 
-            console.log("Movie Title: " + movie.Title);
-            console.log("Release Year: " + movie.Year);
-            console.log("IMDB Rating: " + movie.imdbRating);
-            console.log("Rotten Tomatoes Rating: " + movie.Ratings[2].Value);
-            console.log("Country Produced In: " + movie.Country);
-            console.log("Language: " + movie.Language);
-            console.log("Plot: " + movie.Plot);
-            console.log("Actors: " + movie.Actors);
+            log("Movie This: " + movieName + "\n");
+
+            log("Movie Title: " + movie.Title + "\n");
+            log("Release Year: " + movie.Year + "\n");
+            log("IMDB Rating: " + movie.imdbRating + "\n");
+            log("Rotten Tomatoes Rating: " + movie.Ratings[2].Value + "\n");
+            log("Country Produced In: " + movie.Country + "\n");
+            log("Language: " + movie.Language + "\n");
+            log("Plot: " + movie.Plot + "\n");
+            log("Actors: " + movie.Actors + "\n");
+            log("------------- \n");
         }
     });
 }
@@ -138,7 +145,7 @@ function concertThis(artist) {
     request(queryUrl, function (error, response, data) {
         if (!error && response.statusCode === 200) {
             var eventData = JSON.parse(data);
-            console.log(eventData);
+            log("Concert This: " + artist + "\n");
 
             for (var i = 0; i < data.length; i++) {
                 
@@ -152,10 +159,12 @@ function concertThis(artist) {
                     var format = "YYYY-MM-DD HH-mm-ss";
                     var convertedDate = moment(date, format);
 
-                    console.log("Venue: " + venue.replace(/\"/g, ""));
-                    console.log("City: " + city.replace(/\"/g, "") + ", " + state.replace(/\"/g, ""));
-                    console.log("Date: " + moment(convertedDate).format("MM/DD/YYYY"));
-                    console.log("-------------");
+                    
+
+                    log("Venue: " + venue.replace(/\"/g, "") + "\n");
+                    log("City: " + city.replace(/\"/g, "") + ", " + state.replace(/\"/g, "") + "\n");
+                    log("Date: " + moment(convertedDate).format("MM/DD/YYYY") + "\n");
+                    log("------------- \n");
 
                 }
             }
@@ -180,4 +189,14 @@ function doWhatItSays() {
             doSomething(action, argument);
         }
     });
+}
+
+function log(data){
+    fs.appendFile("log.txt", data, function (err) { 
+        if (err){
+            console.log(err);
+        }
+    });
+    console.log(data);
+
 }

@@ -1,1 +1,76 @@
-Artists: Ace of Base
+Concert This: beyonce
+Venue: Camping World Stadium
+City: Orlando, FL
+Date: 08/29/2018
+------------- 
+Venue: Hard Rock Stadium
+City: Miami Gardens, FL
+Date: 08/29/2018
+------------- 
+Venue: AT&T Stadium
+City: Arlington, TX
+Date: 08/29/2018
+------------- 
+Venue: Mercedes-Benz Superdome
+City: New Orleans, LA
+Date: 08/29/2018
+------------- 
+Venue: NRG Arena
+City: Houston, TX
+Date: 08/29/2018
+------------- 
+Venue: NRG Arena
+City: Houston, TX
+Date: 08/29/2018
+------------- 
+Venue: University of Phoenix Stadium
+City: Glendale, AZ
+Date: 08/29/2018
+------------- 
+Venue: Rose Bowl Stadium
+City: Pasadena, CA
+Date: 08/29/2018
+------------- 
+Venue: Rose Bowl Stadium
+City: Pasadena, CA
+Date: 08/29/2018
+------------- 
+Venue: SDCCU Stadium
+City: San Diego, CA
+Date: 08/29/2018
+------------- 
+Venue: Levi's Stadium
+City: Santa Clara, CA
+Date: 08/29/2018
+------------- 
+Venue: BC Place
+City: Vancouver, 
+Date: 08/29/2018
+------------- 
+Venue: CenturyLink Field
+City: Seattle, WA
+Date: 08/29/2018
+------------- 
+Movie This: Lion King0Movie Title: The Lion King
+Release Year: 1994
+IMDB Rating: 8.5
+Rotten Tomatoes Rating: 83/100
+Country Produced In: USA
+Language: English, Swahili, Xhosa, Zulu
+Plot: A Lion cub crown prince is tricked by a treacherous uncle into thinking he caused his father's death and flees into exile in despair, only to learn in adulthood his identity and his responsibilities.
+Actors: Rowan Atkinson, Matthew Broderick, Niketa Calame-Harris, Jim Cummings
+Movie This: Lion King
+Movie Title: The Lion King
+Release Year: 1994
+IMDB Rating: 8.5
+Rotten Tomatoes Rating: 83/100
+Country Produced In: USA
+Language: English, Swahili, Xhosa, Zulu
+Plot: A Lion cub crown prince is tricked by a treacherous uncle into thinking he caused his father's death and flees into exile in despair, only to learn in adulthood his identity and his responsibilities.
+Actors: Rowan Atkinson, Matthew Broderick, Niketa Calame-Harris, Jim Cummings
+Spotify This Song: "I Want it That Way"
+Artists: Backstreet Boys
+Song Preview: https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=61d7c2f44b2d456ab1e69cc459c138b0
+Song Name: I Want It That Way
+Album: The Hits--Chapter One
+------------- 

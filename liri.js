@@ -10,7 +10,7 @@ var moment = require('moment');
 
 var request = require("request");
 
-var results = "";
+// var results = "";
 
 var fs = require("fs");
 
@@ -141,8 +141,9 @@ function concertThis(artist) {
             console.log(eventData);
 
             for (var i = 0; i < data.length; i++) {
+                
+                //gettind rid of the error message
                 if (eventData[i]) {
-
                     // console.log(eventData);
                     var venue = JSON.stringify(eventData[i].venue.name);
                     var city = JSON.stringify(eventData[i].venue.city);
@@ -157,7 +158,6 @@ function concertThis(artist) {
                     console.log("-------------");
 
                 }
-                // why is this throwing an error at the end?
             }
         }
     });
